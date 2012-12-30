@@ -11,15 +11,18 @@ import com.daba.backend.service.PMF;
 @Repository
 public class UserDaoImpl implements UserDao {
 	
+	private static PersistenceManager pm;
+	
 	@Override
 	public void add(User user) {
 		
-		PersistenceManager pm = PMF.get().getPersistenceManager();
+		if (pm == null || pm.isClosed()) {
+			pm = PMF.get().getPersistenceManager();
+		}
 	
 		try {
 		
-		pm.makePersistent(user);
-		
+		pm.makePersistent(user);	
 		} finally {
 		
 		pm.close();
