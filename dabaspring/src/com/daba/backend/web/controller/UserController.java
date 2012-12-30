@@ -56,7 +56,7 @@ public class UserController {
 		this.user.setEmail(email);
 		this.user.setPassword(password);
 		userService.add(user);
-		return "redirect:home";
+		return "redirect:/";
 		
 		
 	}
