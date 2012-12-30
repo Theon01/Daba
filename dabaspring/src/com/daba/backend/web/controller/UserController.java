@@ -19,26 +19,6 @@ public class UserController {
 	@Autowired
 	User user;
 	
-	@RequestMapping(value="/dabaspring/adduser.do", method=RequestMethod.POST)
-	String saveUser(@RequestParam String firstName,@RequestParam String lastName, @RequestParam String email, @RequestParam String password){
-		
-        
-		this.user.setFirstName(firstName);
-		this.user.setLastName(lastName);
-		this.user.setEmail(email);
-		this.user.setPassword(password);
-		userService.add(user);
-		return "redirect:/index.do";
-		
-		
-	}
-	
-	@RequestMapping(value="/dabaspring/index.do", method=RequestMethod.GET)
-	String index(){
-		
-		return "index";
-		
-	}
 	
 	@RequestMapping(value="/adduser", method=RequestMethod.GET)
 	String adduser(){
@@ -56,19 +36,10 @@ public class UserController {
 		this.user.setEmail(email);
 		this.user.setPassword(password);
 		userService.add(user);
-		return "redirect:/";
+		return "redirect:/home";
 		
 		
 	}
 	
-	@RequestMapping(value="/index.do", method=RequestMethod.GET)
-	String index2(){
-		
-			
-		
-		return "index";
-		
-		
-	}
-
+	
 }
