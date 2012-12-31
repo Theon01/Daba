@@ -16,8 +16,8 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@Autowired
-	User user;
+	//@Autowired
+	//User user;
 	
 	
 	@RequestMapping(value="/adduser", method=RequestMethod.GET)
@@ -28,18 +28,16 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/adduser.do", method=RequestMethod.POST)
-	String saveUserr(@RequestParam String firstname,@RequestParam String lastname, @RequestParam String email, @RequestParam String password){
+	String saveUser(@RequestParam String firstname,@RequestParam String lastname, @RequestParam String email, @RequestParam String password){
 		
-        
-		this.user.setFirstName(firstname);
-		this.user.setLastName(lastname);
-		this.user.setEmail(email);
-		this.user.setPassword(password);
+		User user = new User();
+		user.setFirstName(firstname);
+		user.setLastName(lastname);
+		user.setEmail(email);
+		user.setPassword(password);
 		userService.add(user);
 		return "redirect:/home";
 		
 		
 	}
-	
-	
 }
