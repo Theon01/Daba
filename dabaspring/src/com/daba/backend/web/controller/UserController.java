@@ -16,9 +16,6 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	//@Autowired
-	//User user;
-	
 	
 	@RequestMapping(value="/adduser", method=RequestMethod.GET)
 	String adduser(){
